@@ -1,0 +1,23 @@
+# =====================
+# Frontend (React/Vite)
+# =====================
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# =====================
+# Backend (FastAPI)
+# =====================
+backend/.venv/
+backend/__pycache__/
+backend/.env
+backend/.env.*
+backend/.pytest_cache/
+
+# =====================
+# General
+# =====================
+.DS_Store
+.env
+.env.*
