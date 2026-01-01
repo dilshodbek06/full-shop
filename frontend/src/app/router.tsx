@@ -5,6 +5,12 @@ import ProductsPage from "@/pages/products/products";
 import ReelsPage from "@/pages/reels/reels";
 import CartPage from "@/pages/cart/cart";
 import WishlistPage from "@/pages/wishlist/wishlist";
+import ProfilePage from "@/pages/profile/profile";
+import OrdersPage from "@/pages/orders/orders";
+import ProfileDetailsPage from "@/pages/profile/profile-details";
+import AddressesPage from "@/pages/profile/addresses";
+import AddressFormPage from "@/pages/profile/address-form";
+import PromoCodesPage from "@/pages/profile/promocodes";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +22,12 @@ export const router = createBrowserRouter([
       { path: "reels", element: <ReelsPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "wishlist", element: <WishlistPage /> },
+      { path: "profile", element: <ProfilePage /> },
+      { path: "profile/details", element: <ProfileDetailsPage /> },
+      { path: "profile/addresses", element: <AddressesPage /> },
+      { path: "profile/addresses/new", element: <AddressFormPage /> },
+      { path: "profile/promocodes", element: <PromoCodesPage /> },
+      { path: "orders", element: <OrdersPage /> },
       { path: "*", element: <Navigate to="/" replace /> },
     ],
   },

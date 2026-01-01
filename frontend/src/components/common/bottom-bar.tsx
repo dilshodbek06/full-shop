@@ -13,7 +13,7 @@ const BottomBar = () => {
     { label: "Products", to: "/products" },
     { label: "Reels", to: "/reels" },
     { label: "Cart", to: "/cart", badge: cartCount },
-    { label: "Profile", to: "#" },
+    { label: "Profile", to: "/profile" },
   ];
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 flex h-16 items-center justify-around border-t border-slate-200 bg-white px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] md:hidden">
