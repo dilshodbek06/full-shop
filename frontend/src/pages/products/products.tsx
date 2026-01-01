@@ -9,7 +9,7 @@ const ProductsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-7xl px-3">
-        <div className="hidden lg:block pt-4">
+        <div className="hidden lg:block">
           <Header />
         </div>
         <main className="pt-4 pb-20">

@@ -85,7 +85,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
           strokeWidth={isWished ? 0 : 2}
         />
       </button>
-      <div className="relative mb-2.5 flex items-center justify-center">
+      <div className="relative mb-2 flex items-center justify-center">
         <div className="flex aspect-3/4 w-full items-center justify-center overflow-hidden rounded-lg bg-slate-50">
           <img
             src={product.image}
@@ -102,7 +102,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
       <h4 className="line-clamp-1 text-sm font-semibold text-slate-900">
         {product.name}
       </h4>
-      <div className="mt-2 flex items-baseline gap-2">
+      <div className="mt-1.5 flex items-baseline gap-2">
         <span className="text-base font-bold text-emerald-700 sm:text-lg">
           {product.price}
         </span>
@@ -116,7 +116,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
         <p className="text-xs text-slate-500">{product.pieces}</p>
       ) : null}
 
-      <div className="mt-2.5 relative min-h-13">
+      <div className="mt-2.5 relative min-h-10">
         {actions ? (
           actions
         ) : (
@@ -156,7 +156,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
                   : "pointer-events-none translate-y-1 opacity-0"
               }`}
             >
-              <div className="flex h-full items-center justify-between rounded-lg bg-slate-50 p-2">
+              <div className="flex items-center justify-between rounded-lg bg-slate-50 ">
                 <button
                   type="button"
                   onClick={() => setQuantity(product.id, quantity - 1)}
