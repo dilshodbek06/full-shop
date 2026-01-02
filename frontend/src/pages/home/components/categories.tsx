@@ -52,7 +52,7 @@ const Categories = () => {
         group relative overflow-hidden rounded-2xl
         border border-slate-200/70 bg-white
         shadow-sm transition-all duration-300
-        hover:-translate-y-1 hover:shadow-lg
+         hover:shadow-lg
         focus-within:ring-2 focus-within:ring-slate-900/20
       "
             >

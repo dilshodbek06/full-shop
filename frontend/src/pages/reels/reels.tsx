@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Clock, ShoppingBag, Volume2, VolumeX } from "lucide-react";
+import { ArrowLeft, Clock, ShoppingBag, Volume2, VolumeX } from "lucide-react";
+import { Link } from "react-router-dom";
 import { reels } from "@/data/reels";
 
 type ReelVideoHandle = {
@@ -111,9 +112,13 @@ const ReelsPage = () => {
       {/* Top bar */}
       <div className="pointer-events-none absolute left-0 top-0 z-20 w-full">
         <div className="pointer-events-auto mx-auto flex max-w-xl items-center justify-between px-4 py-3">
-          <div className="text-sm sm:ml-2 font-semibold text-white/90">
-            Reels
-          </div>
+          <Link
+            to="/"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/90 backdrop-blur-md transition hover:bg-white/20"
+            aria-label="Back"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </Link>
 
           <button
             type="button"

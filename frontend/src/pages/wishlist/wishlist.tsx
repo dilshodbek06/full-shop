@@ -1,5 +1,5 @@
 import { ArrowLeft, Heart, Trash2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BottomBar from "@/components/common/bottom-bar";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
@@ -11,6 +11,8 @@ import { useWishlist } from "@/store/use-wishlist";
 const formatPrice = (value: number) => `${value.toLocaleString("ru-RU")} so'm`;
 
 const WishlistPage = () => {
+  const navigate = useNavigate();
+
   const items = useWishlist((s) => s.items);
   const clear = useWishlist((s) => s.clear);
 
@@ -45,12 +47,12 @@ const WishlistPage = () => {
           <div className="flex items-center justify-between gap-4 ">
             {/* LEFT SIDE */}
             <div className="flex items-center gap-2">
-              <Link
-                to="/"
+              <div
+                onClick={() => navigate(-1)}
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 active:scale-95"
               >
                 <ArrowLeft className="h-5 w-5" />
-              </Link>
+              </div>
 
               <div>
                 <h1 className="text-xl font-semibold text-slate-900">

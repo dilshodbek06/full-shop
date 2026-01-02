@@ -11,6 +11,7 @@ import ProfileDetailsPage from "@/pages/profile/profile-details";
 import AddressesPage from "@/pages/profile/addresses";
 import AddressFormPage from "@/pages/profile/address-form";
 import PromoCodesPage from "@/pages/profile/promocodes";
+import ProductDetailPage from "@/pages/products/product-detail";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "products", element: <ProductsPage /> },
+      { path: "products/:productId", element: <ProductDetailPage /> },
       { path: "reels", element: <ReelsPage /> },
       { path: "cart", element: <CartPage /> },
       { path: "wishlist", element: <WishlistPage /> },

@@ -4,5 +4,5 @@ export type Product = {
   oldPrice?: string;
   pieces?: string;
   badge?: string;
-  image: string;
+  images: string[];
 };

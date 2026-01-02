@@ -1,5 +1,13 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+  type KeyboardEvent,
+  type MouseEvent,
+} from "react";
+import { useNavigate } from "react-router-dom";
 import { ShoppingBag, Minus, Plus, Heart } from "lucide-react";
 import type { ProductItem } from "@/data/products";
 import { Button } from "../ui/button";
@@ -13,6 +21,7 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ product, actions }: ProductCardProps) => {
+  const navigate = useNavigate();
   const [isAdding, setIsAdding] = useState(false);
   const addItem = useCart((s) => s.addItem);
   const setQuantity = useCart((s) => s.setQuantity);
@@ -31,7 +40,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
       title: product.name,
       subtitle: product.pieces ?? product.category ?? "Mahsulot",
       price: product.priceValue,
-      image: product.image,
+      image: product.images[0],
       badge: product.badge,
       availability:
         product.stock === "out"
@@ -57,7 +66,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
       subtitle: product.pieces ?? product.category ?? "Mahsulot",
       price: numericPrice,
       quantity: 1,
-      image: product.image,
+      image: product.images[0],
     });
     // Fallback in case store update is delayed
     setTimeout(() => setIsAdding(false), 400);
@@ -71,11 +80,38 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
     addWishlistItem(wishlistPayload);
   };
 
+  const handleNavigate = () => {
+    navigate(`/products/${product.id}`);
+  };
+
+  const handleCardKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    handleNavigate();
+  };
+
+  const handleWishlistClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    toggleWishlist();
+  };
+
+  const handleAddClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    handleAdd();
+  };
+
   return (
-    <div className="group relative flex h-full flex-col rounded-2xl bg-white p-px transition">
+    <div
+      className="group relative flex h-full cursor-pointer flex-col rounded-2xl bg-white p-px transition"
+      role="link"
+      tabIndex={0}
+      onClick={handleNavigate}
+      onKeyDown={handleCardKeyDown}
+      aria-label={`${product.name} details`}
+    >
       <button
         type="button"
-        onClick={toggleWishlist}
+        onClick={handleWishlistClick}
         aria-pressed={isWished}
         className="absolute right-2 top-2 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-500 shadow-sm backdrop-blur transition hover:border-emerald-100 hover:bg-emerald-50 hover:text-emerald-700"
       >
@@ -88,7 +124,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
       <div className="relative mb-2 flex items-center justify-center">
         <div className="flex aspect-3/4 w-full items-center justify-center overflow-hidden rounded-lg bg-slate-50">
           <img
-            src={product.image}
+            src={product.images[0]}
             alt={product.name}
             className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
           />
@@ -132,7 +168,7 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
                 variant="main"
                 className="w-full rounded-lg text-sm transition active:scale-[0.98]"
                 size="sm"
-                onClick={handleAdd}
+                onClick={handleAddClick}
                 disabled={isAdding}
               >
                 {isAdding ? (
@@ -159,7 +195,10 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
               <div className="flex items-center justify-between rounded-lg bg-slate-50 ">
                 <button
                   type="button"
-                  onClick={() => setQuantity(product.id, quantity - 1)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setQuantity(product.id, quantity - 1);
+                  }}
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-slate-700 shadow-sm transition hover:bg-slate-100 active:scale-[0.97]"
                   aria-label="Decrease quantity"
                 >
@@ -170,7 +209,10 @@ const ProductCard = ({ product, actions }: ProductCardProps) => {
                 </span>
                 <button
                   type="button"
-                  onClick={() => setQuantity(product.id, quantity + 1)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setQuantity(product.id, quantity + 1);
+                  }}
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-sm transition hover:bg-emerald-500 active:scale-[0.97]"
                   aria-label="Increase quantity"
                 >

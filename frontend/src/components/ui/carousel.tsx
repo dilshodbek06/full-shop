@@ -65,7 +65,7 @@ const Carousel = ({
     if (!autoPlay || itemsCount < 2) return;
 
     const timer = window.setInterval(() => {
-      setCurrentIndex((prev) => ((prev + 1) % itemsCount) || 0);
+      setCurrentIndex((prev) => (prev + 1) % itemsCount || 0);
     }, autoPlayInterval);
 
     return () => window.clearInterval(timer);
@@ -92,7 +92,11 @@ const Carousel = ({
 
 type CarouselContentProps = React.HTMLAttributes<HTMLDivElement>;
 
-const CarouselContent = ({ children, className, ...props }: CarouselContentProps) => {
+const CarouselContent = ({
+  children,
+  className,
+  ...props
+}: CarouselContentProps) => {
   const { currentIndex, setItemsCount } = useCarousel();
   const items = React.Children.toArray(children);
 
@@ -116,15 +120,16 @@ const CarouselContent = ({ children, className, ...props }: CarouselContentProps
   );
 };
 
-const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("h-full w-full", className)} {...props} />
-  )
-);
+const CarouselItem = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("h-full w-full", className)} {...props} />
+));
 CarouselItem.displayName = "CarouselItem";
 
 const baseControlClasses =
-  "inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/70 text-slate-900 shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/70 text-slate-900 shadow-lg backdrop-blur transition  hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-60";
 
 const CarouselPrevious = ({
   className,
@@ -168,7 +173,10 @@ const CarouselNext = ({
 
 type CarouselIndicatorsProps = React.HTMLAttributes<HTMLDivElement>;
 
-const CarouselIndicators = ({ className, ...props }: CarouselIndicatorsProps) => {
+const CarouselIndicators = ({
+  className,
+  ...props
+}: CarouselIndicatorsProps) => {
   const { itemsCount, currentIndex, goTo } = useCarousel();
 
   if (itemsCount <= 1) return null;
