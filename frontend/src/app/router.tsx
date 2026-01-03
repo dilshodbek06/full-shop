@@ -5,6 +5,7 @@ import ProductsPage from "@/pages/products/products";
 import ReelsPage from "@/pages/reels/reels";
 import CartPage from "@/pages/cart/cart";
 import WishlistPage from "@/pages/wishlist/wishlist";
+import DiscountsPage from "@/pages/discounts/discounts";
 import ProfilePage from "@/pages/profile/profile";
 import OrdersPage from "@/pages/orders/orders";
 import ProfileDetailsPage from "@/pages/profile/profile-details";
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "products", element: <ProductsPage /> },
+      { path: "discounts", element: <DiscountsPage /> },
       { path: "products/:productId", element: <ProductDetailPage /> },
       { path: "reels", element: <ReelsPage /> },
       { path: "cart", element: <CartPage /> },

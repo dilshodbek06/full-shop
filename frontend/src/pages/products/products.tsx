@@ -1,11 +1,14 @@
-import { ChevronDown, Search } from "lucide-react";
+import { ArrowLeft, ChevronDown, Search } from "lucide-react";
 import Footer from "@/components/common/footer";
 import BottomBar from "@/components/common/bottom-bar";
 import ProductCard from "@/components/common/product-card";
 import { allProducts } from "@/data/products";
 import Header from "@/components/common/header";
+import { useNavigate } from "react-router-dom";
 
 const ProductsPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-7xl px-3">
@@ -14,10 +17,20 @@ const ProductsPage = () => {
         </div>
         <main className="pt-4 pb-20">
           {/* Title */}
-          <h2 className="mb-4 text-xl font-semibold">Barcha mahsulotlar</h2>
+          <div className="flex items-center gap-2">
+            <div
+              onClick={() => navigate(-1)}
+              className="flex sm:hidden h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:bg-slate-100  hover:text-slate-700 active:scale-95"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </div>
+            <h1 className="text-xl font-semibold text-slate-900">
+              Barcha mahsulotlar
+            </h1>
+          </div>
 
           {/* Search */}
-          <div className="relative mb-5 flex items-center rounded-xl border border-slate-200 bg-white">
+          <div className="relative mt-3 mb-5 flex items-center rounded-xl border border-slate-200 bg-white">
             <Search className="ml-3 h-4 w-4 text-slate-400" />
             <input
               type="search"

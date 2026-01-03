@@ -21,7 +21,9 @@ const CartPage = () => {
           <Header />
         </div>
 
-        <main className="pt-4 pb-20">
+        <main
+          className={`pt-4 ${hasItems ? "pb-36 md:pb-24 lg:pb-20" : "pb-20"}`}
+        >
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
               <h1 className="text-2xl font-semibold">Savat</h1>
@@ -147,7 +149,7 @@ const CartPage = () => {
       </div>
 
       {hasItems ? (
-        <div className="sticky bottom-16 z-40 border-t border-slate-200 bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.06)] md:bottom-0 lg:hidden">
+        <div className="fixed inset-x-0 bottom-16 z-40 border-t border-slate-200 bg-white shadow-[0_-8px_30px_rgba(0,0,0,0.06)] md:bottom-0 lg:hidden">
           <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
             <div>
               <p className="text-xl font-bold text-slate-900">

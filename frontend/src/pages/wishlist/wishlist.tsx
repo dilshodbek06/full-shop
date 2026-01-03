@@ -32,14 +32,14 @@ const WishlistPage = () => {
         : item.availability === "low"
         ? "low"
         : "in-stock",
-    image: item.image,
+    images: [item.image],
     releasedAt: "2024-01-01",
   });
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <div className="mx-auto max-w-7xl px-3">
-        <div className="hidden lg:block pt-4">
+        <div className="hidden lg:block">
           <Header />
         </div>
 
@@ -49,7 +49,7 @@ const WishlistPage = () => {
             <div className="flex items-center gap-2">
               <div
                 onClick={() => navigate(-1)}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 active:scale-95"
+                className="flex sm:hidden h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 active:scale-95"
               >
                 <ArrowLeft className="h-5 w-5" />
               </div>

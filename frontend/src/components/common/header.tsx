@@ -7,9 +7,9 @@ import { useWishlist } from "@/store/use-wishlist";
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "Products", to: "/products" },
-  { label: "Discounts", to: "#" },
+  { label: "Discounts", to: "/discounts" },
   { label: "Reels", to: "/reels" },
-  { label: "About us", to: "#" },
+  { label: "About us", to: "/#about-us" },
 ];
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
           <h2 className="font-semibold">Shop</h2>
         </Link>
 
-        <nav className="hidden  items-center gap-5 text-sm font-semibold text-slate-700 md:flex">
+        <nav className="hidden items-center gap-5 text-sm font-semibold text-slate-700 md:flex">
           {navLinks.map((link) =>
             link.to.startsWith("#") ? (
               <span
@@ -44,7 +44,9 @@ const Header = () => {
                 className={({ isActive }) =>
                   cn(
                     "rounded-full px-3 py-2 transition hover:bg-emerald-50 hover:text-emerald-700",
-                    isActive && "bg-emerald-50 text-emerald-700"
+                    isActive &&
+                      link.to !== "/#about-us" &&
+                      "bg-emerald-50 text-emerald-700"
                   )
                 }
               >

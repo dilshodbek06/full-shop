@@ -192,7 +192,7 @@ const CarouselIndicators = ({
             onClick={() => goTo(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={cn(
-              "h-2.5 w-8 rounded-full transition-all duration-300",
+              "h-2 w-6 rounded-full transition-all duration-300",
               isActive ? "bg-white shadow-lg" : "bg-white/40 hover:bg-white/60"
             )}
           />

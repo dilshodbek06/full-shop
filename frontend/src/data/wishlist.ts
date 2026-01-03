@@ -11,7 +11,7 @@ export type WishlistItem = {
 
 export const wishlistItems: WishlistItem[] = [
   {
-    id: "w-1",
+    id: "p-2",
     title: "Deep Hydrate Serum",
     subtitle: "50 ml · teri parvarishi",
     price: 320000,
@@ -20,7 +20,7 @@ export const wishlistItems: WishlistItem[] = [
     availability: "available",
   },
   {
-    id: "w-2",
+    id: "p-9",
     title: "Omega-3 Gold Fish Oil",
     subtitle: "120 kapsula · vitamin",
     price: 540000,
@@ -29,7 +29,7 @@ export const wishlistItems: WishlistItem[] = [
     note: "Cheklangan miqdor",
   },
   {
-    id: "w-3",
+    id: "p-1",
     title: "Immuno Plus Vitamin C",
     subtitle: "30 tabletka · immunitet",
     price: 180000,
@@ -38,7 +38,7 @@ export const wishlistItems: WishlistItem[] = [
     availability: "available",
   },
   {
-    id: "w-4",
+    id: "p-7",
     title: "Portable Nebulizer Device",
     subtitle: "1 dona · tibbiy asbob",
     price: 1200000,
@@ -47,7 +47,7 @@ export const wishlistItems: WishlistItem[] = [
     note: "Qayta kirim kutilmoqda",
   },
   {
-    id: "w-5",
+    id: "p-4",
     title: "Calm Night Magnesium",
     subtitle: "90 kapsula · qo'shimcha",
     price: 220000,
@@ -55,7 +55,7 @@ export const wishlistItems: WishlistItem[] = [
     availability: "available",
   },
   {
-    id: "w-6",
+    id: "p-8",
     title: "Sport Electrolyte Mix",
     subtitle: "20 sachet · sport",
     price: 350000,
